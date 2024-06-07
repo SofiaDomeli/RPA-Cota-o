@@ -27,10 +27,10 @@ driver.quit()
 # Conexão com o database 
 
 conn = psycopg2.connect(
-    dbname="dbcotacoes",
-    user="postgres",
-    password="1234",
-    host="localhost"
+    dbname="defaultdb",
+    user="avnadmin",
+    password="AVNS_PiPCdU87ySKStvr7N8q",
+    host="pg-362da2a-wowk.f.aivencloud.com"
 )
  
 # Criar um cursor
