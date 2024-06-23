@@ -27,12 +27,22 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Test
+      run: coverage run -m teste
+      
+    - name: Report
+      run: coverage report
     
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.4.0
+ 
     - name: Docker Build & Push Action
       uses: mr-smithers-excellent/docker-build-push@v6.4
       with:
         image: sofiadomeli/rpa_cotacao
-        tags: ${{github.run}}
+        tags: ${{github.run_number}}, ${{steps.version.outputs.version}}
         registry: docker.io
         dockerfile: ./dockerfile
         username: ${{secrets.dockeruser}}
