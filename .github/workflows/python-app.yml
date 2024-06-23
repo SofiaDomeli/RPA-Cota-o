@@ -42,7 +42,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v6.4
       with:
         image: sofiadomeli/rpa_cotacao
-        tags: ${{github.run_number}}, ${{steps.version.outputs.version}}
+        tags: ${{github.run_number}}-main, ${{steps.version.outputs.version}}
         registry: docker.io
         dockerfile: ./dockerfile
         username: ${{secrets.dockeruser}}
